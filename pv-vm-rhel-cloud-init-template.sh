@@ -10,7 +10,7 @@
 # The CPU features required by RHEL 8 and RHEL 9 are different. I saw kernel crashes with Packer/Qemu and filed a bug (https://bugzilla.redhat.com/show_bug.cgi?id=2094260), there RH Engineering pointed this RHBZ for background information:
 # https://bugzilla.redhat.com/show_bug.cgi?id=2060839
 # As you've noticed and as mentioned in the Packer/Qemu RHBZ, using 'host' as vCPU type will avoid the issue. Ideally tools would use supported libvirt instead of unsupported qemu-kvm at least over the long-term.
-#
+# via https://access.redhat.com/discussions/6959360
 
 #  wget/curl download KVM/QEMU image from redhat website
 #
