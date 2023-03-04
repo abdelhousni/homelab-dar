@@ -2,9 +2,17 @@
 # https://pve.proxmox.com/wiki/Cloud-Init_Support
 # https://memo-linux.com/proxmox-deployer-une-machine-virtuelle-kvm-avec-cloud-init/
 # https://access.redhat.com/documentation/fr-fr/red_hat_enterprise_linux/8/html-single/configuring_and_managing_cloud-init_for_rhel_8/index
+# https://access.redhat.com/documentation/fr-fr/red_hat_enterprise_linux_openstack_platform/7/html-single/instances_and_images_guide/index
+
+
+# remarque :
+# Marko Myllynen
+# The CPU features required by RHEL 8 and RHEL 9 are different. I saw kernel crashes with Packer/Qemu and filed a bug (https://bugzilla.redhat.com/show_bug.cgi?id=2094260), there RH Engineering pointed this RHBZ for background information:
+# https://bugzilla.redhat.com/show_bug.cgi?id=2060839
+# As you've noticed and as mentioned in the Packer/Qemu RHBZ, using 'host' as vCPU type will avoid the issue. Ideally tools would use supported libvirt instead of unsupported qemu-kvm at least over the long-term.
+#
 
 #  wget/curl download KVM/QEMU image from redhat website
-
 #
 qm create 1000 --name "rhel-9.1-cloudinit-template" --memory 2048 --net0 virtio,bridge=vmbr0
 # Importer l’image précédemment téléchargée et définir le stockage :
