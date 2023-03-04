@@ -2,10 +2,16 @@
 ```mermaid
 graph TD
     gateway[gateway: 192.168.1.1]
-    A[router] --> VM1[VM]
-    A[router] --> VM2[VM]
-    A[router] --> VM3[VM]
-    A[router] --> VM...[VM]
+    A[router] --> 
+    vswitch[virtual switch] --> LB[load balancer]
+    
+    vswitch --> VM1[VM]
+    vswitch--> VM2[VM]
+
+    vswitch --> VM3[VM]
+    LB --> CT1[CT]
+    LB --> CT2[CT]
+    
     A[router] --> Server1[server]
     A[router] --> Server2[server]
     A[router] --> other[/other devices/]
@@ -15,11 +21,22 @@ graph TD
       client
     end
     subgraph PVE
+        vswitch
         VM1
         VM2
         VM3
-        VM...
+        VMDMZ
+        LB
+        CT1
+        CT2
+        vswitch --> VMDMZ
+        subgraph DMZ
+
+       VMDMZ
+
     end
+    end
+    
     subgraph reserved/static 192.168.0.101-255
       Server1
       Server2
