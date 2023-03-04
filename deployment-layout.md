@@ -1,6 +1,10 @@
 # Deployment layout
 ```mermaid
 graph TD
+    internet --> bastion
+  
+    bastion --> PVE
+    bastion --> DMZ
     gateway[gateway: 192.168.1.1]
     A[router] --> 
     vswitch[virtual switch] --> LB[load balancer]
