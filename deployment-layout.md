@@ -5,8 +5,8 @@ graph TD
   
     bastion --> PVE
     bastion --> DMZ
-    gateway[gateway: 192.168.1.1]
-    A[router] --> 
+
+    A[router//gateway: 192.168.1.1] --> 
     vswitch[virtual switch] --> LB[load balancer]
     
     vswitch --> VM1[VM]
