@@ -2,7 +2,7 @@
 ```mermaid
 graph TD
     internet --> bastion
-  
+    internet --> A
     bastion --> PVE
     bastion --> DMZ
 
